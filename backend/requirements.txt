@@ -1,6 +1,8 @@
 FastAPI
 uvicorn
-uszipcode
+psycopg2-binary
+uszipcode==0.2.6
+sqlalchemy==1.4.46
 
 
 
