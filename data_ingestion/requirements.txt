@@ -1,0 +1,7 @@
+pdfplumber
+psycopg2
+us
+
+
+
+
