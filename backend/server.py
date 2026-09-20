@@ -12,12 +12,13 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-@app.get("/insurance")                                                    #grabs zip code from url
+@app.get("/insurance")                                                      #grabs zip code from url
 def insurance(zip: str):
-    state = map_zip_to_state(zip)                                         # "95032" → "California"
-    data = get_data(state)                                                # "California" → queried rows
+    state = map_zip_to_state(zip)                                           # "95032" → "California"
+    if state is None:                                           
+        return []
+    data = get_data(state)                                                  # "California" → queried rows
     return [
         {"year": row[0], "type": row[1], "premium": float(row[2]), "state": state}
         for row in data
     ]
-
