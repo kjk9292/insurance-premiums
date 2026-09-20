@@ -1,7 +1,6 @@
-import uszipcode 
+import pgeocode
 
 def map_zip_to_state(zip_code):
-    search = uszipcode.SearchEngine()
-    result = search.by_zipcode(zip_code)
-    return result.state_long
-
+    nomi = pgeocode.Nominatim('us')
+    result = nomi.query_postal_code(zip_code)
+    return result.state_name
