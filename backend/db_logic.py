@@ -8,12 +8,8 @@ import psycopg2
 
 def get_data(state):
   # conn = connection to PostgreSQL
-    conn = psycopg2.connect(
-    database="insurance",
-    user="kylekoh",
-    password="rolf12345",
-    host="localhost"
-    )
+    conn = psycopg2.connect(os.environ.get("DATABASE_URL"))
+
     cursor = conn.cursor() #what actually sends SQL commands
 
     cursor.execute("""
