@@ -5,6 +5,7 @@
 #We don't need to do 'from zip_to_state import map_zip_to_state' since we will get our state input when we import map_zip_to_state in server.py
 
 import psycopg2
+import os
 
 def get_data(state):
   # conn = connection to PostgreSQL

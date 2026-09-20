@@ -5,6 +5,7 @@
 import pdfplumber
 import psycopg2
 import us
+import os
 
 files = {
     "collision":     "/Users/kylekoh/Desktop/insurance-project/data/car-insurance-collision-data.pdf",
@@ -13,12 +14,7 @@ files = {
 }
 
 # connect to PostgreSQL
-conn = psycopg2.connect(
-    database="insurance",
-    user="kylekoh",
-    password="rolf12345",
-    host="localhost"
-)
+conn = psycopg2.connect(os.environ.get("DATABASE_URL"), sslmode='require')
 cursor = conn.cursor()
 
 # create table once
